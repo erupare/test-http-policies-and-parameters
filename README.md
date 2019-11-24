@@ -8,7 +8,7 @@ There are currently two example policies in this directory:
 
 The first policy simply uses the HTTP import to call an external API, https://yesno.wtf/api that randomly returns "yes" or "no" (but sometimes returns "maybe"). It also uses the recently added [case statement](https://docs.hashicorp.com/sentinel/language/spec/#case-statements) that provides a selection control mechanism to conditionally execute different logic based on the value of an argument.
 
-The second policy uses the HTTP import to call the Terraform Registry [List Modules API](https://www.terraform.io/docs/registry/api.html#list-modules) against a Terraform Cloud or Terraform Enterprise server in order to determine the most recent version of each module in the [Private Module Registry](https://www.terraform.io/docs/cloud/registry/index.html)(PMR) of an organization on that server.
+The second policy uses the HTTP import to call the Terraform Registry [List Modules API](https://www.terraform.io/docs/registry/api.html#list-modules) against a Terraform Cloud or Terraform Enterprise server in order to determine the most recent version of each module in the [Private Module Registry](https://www.terraform.io/docs/cloud/registry/index.html) (PMR) of an organization on that server.
 
 There is also a policy set configuration file, [sentinel.hcl](./sentinel.hcl) that lists the policies and sets their enforcement levels.
 
@@ -27,5 +27,7 @@ To use this policy set in your own organization on a Terraform Cloud or Terrafor
 1. Save the policy set.
 1. Add a workspace to the policy set that uses Terraform code that references modules in the PMR in the organization you specified.
 1. Queue a plan against that workspace in the Terraform Cloud UI.
+
+The last step should cause both policies to be tested in your run.
 
 You could also configure the policy set to use the public Terraform registry by adding the `address` parameter and setting it to `registry.terraform.io` and adding the `public_registry` parameter and setting it to `true`. In this case, you should set `organization` to the organization who published the modules you wish to test.  This is described [here](https://www.terraform.io/docs/registry/api.html#namespace) in the documentation for the Terraform Registry HTTP API.
