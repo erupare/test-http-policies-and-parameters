@@ -1,4 +1,4 @@
-# Policy Set for Testing the Sentinel HTTP Import and Parameters
+# Testing the Sentinel HTTP Import and Parameters
 This repository contains a policy set that can be used to test the Sentinel [HTTP import](https://docs.hashicorp.com/sentinel/imports/http) and [policy parameters](https://docs.hashicorp.com/sentinel/language/parameters) that were added in the Sentinel 0.13.0 runtime.
 
 ## Files
