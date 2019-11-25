@@ -13,6 +13,7 @@ import "http"
 import "strings"
 import "json"
 import "types"
+import "runtime"
 
 ##### Parameters #####
 
@@ -125,6 +126,7 @@ validate_modules = func(public_registry, address, organization, token) {
 ##### Rules #####
 
 # Main rule
+print("version:", runtime.version)
 modules_validated = validate_modules(public_registry, address, organization, token)
 main = rule {
   modules_validated
